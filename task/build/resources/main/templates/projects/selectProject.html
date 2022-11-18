@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskManagement/プロジェクト選択</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<h1>プロジェクトを選択してください</h1>
+<ul>
+    <li><a href="/logout" th:href="@{/logout}">ログアウト</a></li>
+    <li><a href="../users/createUser.html" th:href="@{/users/createUser}">ユーザー作成</a></li>
+    <li><a href="deleteProject.html" th:href="@{/projects/deleteProject}">プロジェクト退会</a></li>
+</ul>
+
+<table>
+    <thead>
+    <tr>
+        <th>プロジェクトID</th>
+        <th>プロジェクト一覧</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="project : ${projectList}">
+        <th th:text="${project.projectId}">(id)</th>
+        <td>
+        <a href="../task/selectTask.html" th:href="@{/task/selectTask/{taskId}(taskId=${project.projectId})}" th:text="${project.projectName}">
+         project</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

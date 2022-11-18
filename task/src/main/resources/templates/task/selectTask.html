@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskManagement/タスク選択</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<h1>タスクを選択してください</h1>
+
+<ul>
+    <li>
+        <a href="" th:href="@{/logout}">ログアウト</a></li>
+        <a href="../projects/changeProject.html" th:href="@{/../../projects/changeProject}">プロジェクト名変更</a><br>
+        <a href="../projects/createProject.html" th:href="@{/./task/createTask/{id}(id=${id})}">タスク登録</a><br>
+
+    </li>
+</ul>
+
+<table>
+    <thead>
+    <tr>
+        <th>タスクID</th>
+        <th>タスク一覧</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task : ${taskList}">
+        <th th:text="${task.taskId}">(id)</th>
+        <td>
+            <a href="./contents.html" th:href="@{/task/contents/{contentId}(contentId=${task.taskId})}" th:text="${task.taskName}">task</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

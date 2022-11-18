@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskManagement/プロジェクト名変更</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<h1>プロジェクト名変更</h1>
+<ul>
+    <a href="../projects/selectProject.html" th:href="@{/}">プロジェクト選択画面へ戻る</a>
+</ul>
+<form action="#" th:action="@{/projects/changeProject}" method="post" th:object="${projectChangeForm}">
+    <div class="mt-3">
+        <label for="projectOldNameInput" class="form-label">現在のプロジェクト名</label>
+        <input type="text" id="projectOldNameInput" name="projectOldName" class="form-control" th:field="*{projectOldName}"><br>
+    </div>
+    <div class="mt-3">
+        <label for="projectnameInput" class="form-label">新しいプロジェクト名</label>
+        <input type="text" id="projectnameInput" name="projectName" class="form-control" th:field="*{projectName}">
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">変更</button>
+    </div>
+</form>
+</body>
+</html>
